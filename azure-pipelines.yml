@@ -14,7 +14,8 @@ stages:
           runOnce:
             deploy:
               steps:
-                - script: ls . && docker compose -f $(System.DefaultWorkingDirectory)/wt-mssql.yml up -d
+                - checkout: self
+                - script: docker compose -f $(System.DefaultWorkingDirectory)/wt-mssql.yml up -d
                   displayName: Warming Up
   - stage: Release
     displayName: Stop Test and Release
