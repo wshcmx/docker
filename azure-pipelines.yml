@@ -1,17 +1,30 @@
 trigger:
-- main
+  - main
 
 stages:
-- stage: deploy
-  jobs:
-  - deployment: DeployWeb
-    displayName: deploy Web App
-    pool: default
-    environment:
-      name: 'Test'
-      resourceType: virtualMachine
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - script: echo Hello world
+  - stage: WarmUp
+    jobs:
+      - deployment: WarmUp
+        displayName: Warming Up
+        pool: default
+        environment:
+          name: Test
+          resourceType: virtualMachine
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - script: docker compose -f wt.yml up -d
+                  displayName: Warming Up
+      - deployment: CleanUp
+        displayName: Cleaning Up
+        pool: default
+        environment:
+          name: Test
+          resourceType: virtualMachine
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - script: docker compose -f wt.yml down -v
+                  displayName: Cleaning up
