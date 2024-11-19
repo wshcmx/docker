@@ -31,5 +31,6 @@ stages:
           runOnce:
             deploy:
               steps:
+                - checkout: self
                 - script: docker compose -f $(System.DefaultWorkingDirectory)/wt-mssql.yml down -v
                   displayName: Cleaning up
