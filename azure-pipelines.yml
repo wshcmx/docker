@@ -7,9 +7,8 @@ stages:
   - deployment: DeployWeb
     displayName: deploy Web App
     pool: default
-    environment: 
+    environment:
       name: 'Test'
-      resourceName: Test
       resourceType: virtualMachine
     strategy:
       runOnce:
