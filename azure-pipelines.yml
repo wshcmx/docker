@@ -1,0 +1,36 @@
+trigger:
+  - main
+
+stages:
+  - stage: WarmUp
+    jobs:
+      - deployment: WarmUp
+        displayName: Warming Up
+        pool: default
+        environment:
+          name: Test
+          resourceType: virtualMachine
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - checkout: self
+                - script: docker compose -f $(System.DefaultWorkingDirectory)/wt-mssql.yml up -d
+                  displayName: Warming Up
+  - stage: Release
+    displayName: Stop Test and Release
+    dependsOn: WarmUp
+    jobs:
+      - deployment: CleanUp
+        displayName: Cleaning Up
+        pool: default
+        environment:
+          name: Test
+          resourceType: virtualMachine
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - checkout: self
+                - script: docker compose -f $(System.DefaultWorkingDirectory)/wt-mssql.yml down -v
+                  displayName: Cleaning up
