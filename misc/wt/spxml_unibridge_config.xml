@@ -26,14 +26,12 @@
     <add key="LinkedCatalogsSchemaDeletions" value="true" />
     <add key="UpgradeLocked" value="false" />
     <add key="DataStorage" value="false" />
-
-
     <add key="InPlaceUpgrade" value="false" />
     <add key="Collation" value="" />
     <add key="LuceneFTIndex" value="true" />
     <add key="LuceneFTIndexBlobs" value="true" />
-    <add key="LuceneFTAnalyzerSpecialChars" value="./-_\~':;,?#@!$%^&amp;*()+=|[]{}&gt;&lt;&quot;№" />
-    <add key="SharedFTDirectory" value="/WebsoftServer/wt_data/..\FT" />
+  	<add key="LuceneFTAnalyzerSpecialChars" value="./-_\~':;,?#@!$%^&amp;*()+=|[]{}&gt;&lt;&quot;№" />
+    <add key="SharedFTDirectory" value="..\FT" />
     <add key="CacheEnabled" value="true" />
     <add key="CacheMaxMemoryItemLenBytes" value="8388608" />
     <add key="CacheMemoryLimitPercentage" value="20" />
