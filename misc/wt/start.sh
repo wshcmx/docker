@@ -16,6 +16,9 @@ sed -i "s/\$SMTP_LOGIN/$SMTP_LOGIN/g" /WebsoftServer/is.js
 sed -i "s/\$SMTP_PASSWORD/$SMTP_PASSWORD/g" /WebsoftServer/is.js
 
 
-echo "" > /WebsoftServer/fifd
+if [ ! -f "/fifd" ]; then
+  touch /WebsoftServer/fifd
+  touch /fifd
+fi
 
 ./xhttp.out
