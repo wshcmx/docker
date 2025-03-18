@@ -3,6 +3,7 @@ services:
     image: ${WT_IMAGE}
     entrypoint: /tmp/wt/start.sh
     env_file: .env
+    tty: true
     environment:
       - MSSQL_USERNAME=${MSSQL_USERNAME}
       - MSSQL_SA_PASSWORD=${MSSQL_SA_PASSWORD}
