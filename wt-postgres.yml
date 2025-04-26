@@ -36,4 +36,3 @@ networks:
 
 volumes:
   wtdb-postgres-data:
-    name: "wtdb-postgres-data"

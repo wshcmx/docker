@@ -17,12 +17,7 @@ services:
 
 volumes:
   wt-data:
-    name: "wt-data"
   wt-webtutor:
-    name: "wt-webtutor"
   wt-logs:
-    name: "wt-logs"
   wt-idxs:
-    name: "wt-idxs"
   wt-apps:
-    name: "wt-apps"
