@@ -8,6 +8,7 @@ services:
       - MSSQL_USERNAME=${MSSQL_USERNAME}
       - MSSQL_SA_PASSWORD=${MSSQL_SA_PASSWORD}
     volumes:
+      - ./misc/wt/wshcmx:/WebsoftServer/wt/web/wshcmx
       - ./misc/wt:/tmp/wt
       - wt-data:/WebsoftServer/wt_data
       - wt-webtutor:/WebsoftServer/wt/web/webtutor
