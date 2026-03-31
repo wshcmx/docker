@@ -4,6 +4,10 @@ services:
     extends:
       file: wt.yml
       service: wt
+    environment:
+      - SQL_TYPE=MSSQL
+      - SQL_USERNAME=${MSSQL_USERNAME}
+      - SQL_PASSWORD=${MSSQL_SA_PASSWORD}
     depends_on:
       db:
         condition: service_healthy

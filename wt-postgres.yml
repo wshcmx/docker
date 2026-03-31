@@ -3,6 +3,10 @@ services:
     extends:
       file: wt.yml
       service: wt
+    environment:
+      - SQL_TYPE=PostgreSQL
+      - SQL_USERNAME=${POSTGRES_USERNAME}
+      - SQL_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - 81:80
     networks:
@@ -11,8 +15,8 @@ services:
   postgres:
     image: postgres
     environment:
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=${POSTGRES_USERNAME}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - ./misc/postgres/create_db.sql:/docker-entrypoint-initdb.d/create_tables.sql
       - wtdb-postgres-data:/var/lib/postgres/data
