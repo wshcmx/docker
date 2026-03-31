@@ -34,3 +34,8 @@ networks:
 
 volumes:
   wtdb-postgres-data:
+  wt-data:
+  wt-webtutor:
+  wt-logs:
+  wt-idxs:
+  wt-apps:
