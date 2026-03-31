@@ -2,6 +2,8 @@ CREATE SCHEMA IF NOT EXISTS dbo;
 
 ALTER SCHEMA dbo OWNER TO root;
 
+CREATE DATABASE WTDB;
+
 CREATE OR REPLACE FUNCTION dbo.count_rows (schema text, tablename text)
     RETURNS integer
     LANGUAGE plpgsql
