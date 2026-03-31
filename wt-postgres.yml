@@ -14,7 +14,7 @@ services:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
     volumes:
-      - ./misc/create.sql:/docker-entrypoint-initdb.d/create_tables.sql
+      - ./misc/postgres/create_db.sql:/docker-entrypoint-initdb.d/create_tables.sql
       - wtdb-postgres-data:/var/lib/postgres/data
     ports:
       - 5432:5432
